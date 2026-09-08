@@ -385,8 +385,12 @@ function Index() {
               </div>
               <p className="max-w-xs text-white/40 text-sm leading-relaxed">
                 Excelência contábil e consultoria empresarial estratégica.
-                Registrados no CRC-SP.
               </p>
+              <div className="mt-6 space-y-1 text-white/40 text-xs">
+                <p className="font-medium text-white/60">Responsabilidade técnica</p>
+                <p>Marly Momesso Oliveira</p>
+                <p>CRC-SP 1SP 163438/O-1</p>
+              </div>
             </div>
             <div>
               <h4 className="font-mono text-[10px] uppercase tracking-widest text-gold mb-6">
