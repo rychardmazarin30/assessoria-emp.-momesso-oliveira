@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { site, yearsInBusiness } from "@/data/site";
 import { CtaBand } from "@/components/CtaBand";
+import { Partners } from "@/components/Partners";
 import familia1 from "../assets/familia-1.jpg.asset.json";
 import familia2 from "../assets/familia-2.jpg.asset.json";
 import marly from "../assets/marly.jpg.asset.json";

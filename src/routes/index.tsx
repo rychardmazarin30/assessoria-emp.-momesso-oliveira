@@ -5,6 +5,7 @@ import { site, whatsappLink, yearsInBusiness } from "@/data/site";
 import { services } from "@/data/services";
 import { posts } from "@/data/blog";
 import { ContactForm } from "@/components/ContactForm";
+import { Partners } from "@/components/Partners";
 import familia1 from "../assets/familia-1.jpg.asset.json";
 import familia2 from "../assets/familia-2.jpg.asset.json";
 import marly from "../assets/marly.jpg.asset.json";
