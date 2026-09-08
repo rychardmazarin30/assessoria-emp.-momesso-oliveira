@@ -119,7 +119,7 @@ function Index() {
               </a>
             ))}
             <a
-              href="tel:+551127584425"
+              href="#contato"
               className="px-5 py-2.5 bg-navy text-white hover:bg-gold transition-all"
             >
               Falar Agora
@@ -149,7 +149,7 @@ function Index() {
               </a>
             ))}
             <a
-              href="tel:+551127584425"
+              href="#contato"
               className="block w-fit px-5 py-2.5 bg-navy text-white font-mono text-xs uppercase tracking-widest"
             >
               Falar Agora
@@ -421,7 +421,7 @@ function Index() {
               <ul className="space-y-3 text-sm text-white/60">
                 <li>
                   <a
-                    href="https://linkedin.com"
+                    href="https://br.linkedin.com/company/momesso-oliveira"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
