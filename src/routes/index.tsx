@@ -8,7 +8,6 @@ import { ContactForm } from "@/components/ContactForm";
 import { Partners } from "@/components/Partners";
 import familia1 from "../assets/familia-1.jpg.asset.json";
 import familia2 from "../assets/familia-2.jpg.asset.json";
-import marly from "../assets/marly.jpg.asset.json";
 import mapLocationAsset from "../assets/map-location.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
