@@ -431,7 +431,7 @@ function Index() {
                 </li>
                 <li>
                   <a
-                    href="https://instagram.com"
+                    href="https://www.instagram.com/momessoeoliveira.contabilidade/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
