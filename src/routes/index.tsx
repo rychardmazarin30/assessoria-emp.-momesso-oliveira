@@ -48,20 +48,33 @@ const services = [
   },
 ];
 
-const testimonials = [
+const differentials = [
   {
-    quote:
-      "A Momesso & Oliveira trouxe a organização que faltava para nossa expansão. O atendimento é personalizado e extremamente técnico.",
-    author: "Diretor Executivo",
-    company: "Tech Industry",
+    code: "01",
+    title: "Desde 1991",
+    description:
+      "Mais de três décadas de atuação contábil, acompanhando empresas de todos os portes em cada fase do crescimento.",
   },
   {
-    quote:
-      "Segurança total em todas as etapas fiscais. Um parceiro indispensável para quem busca crescer com solidez.",
-    author: "Sócia Fundadora",
-    company: "Studio Design",
+    code: "02",
+    title: "Atendimento nacional",
+    description:
+      "Sede em São Bernardo do Campo e atendimento a empresas em todo o território nacional, com rotinas 100% digitais.",
+  },
+  {
+    code: "03",
+    title: "Parceira Conta Azul",
+    description:
+      "Escritório parceiro certificado Conta Azul, com processos integrados e informação contábil em tempo real.",
+  },
+  {
+    code: "04",
+    title: "Da abertura ao planejamento",
+    description:
+      "Abertura de empresas de todas as naturezas, planejamento tributário e consultoria empresarial contínua.",
   },
 ];
+
 
 function LogoMark({ className = "size-10" }: { className?: string }) {
   return (
