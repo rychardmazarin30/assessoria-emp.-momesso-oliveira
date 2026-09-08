@@ -89,7 +89,7 @@ function LogoMark({ className = "size-10" }: { className?: string }) {
 
 function Index() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  
 
   return (
     <div className="min-h-screen bg-paper text-navy font-body selection:bg-gold/20">
