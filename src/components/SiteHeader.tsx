@@ -6,12 +6,12 @@ import { navLinks, whatsappLink } from "@/data/site";
 
 export function LogoMark({ className = "size-10" }: { className?: string }) {
   return (
-    <div
-      className={`${className} bg-navy flex items-center justify-center`}
+    <img
+      src="/favicon.png"
+      alt=""
+      className={`${className} shrink-0 object-contain`}
       aria-hidden="true"
-    >
-      <div className="size-6 border-2 border-gold rotate-45" />
-    </div>
+    />
   );
 }
 

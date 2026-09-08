@@ -1,4 +1,6 @@
 import marly from "../assets/marly.jpg.asset.json";
+import nathaly from "../assets/nathaly.jpg.asset.json";
+import nayara from "../assets/nayara.jpg.asset.json";
 import { site } from "@/data/site";
 
 const partners = [
@@ -18,11 +20,13 @@ const partners = [
     name: "Nayara Momesso",
     role: "Nova geração · Futura sucessora",
     text: "Filha dos fundadores, integra a nova geração da família à frente das rotinas do escritório, unindo tecnologia e o atendimento próximo que sempre marcou a casa.",
+    photo: nayara.url,
   },
   {
     name: "Nathaly Momesso",
     role: "Nova geração · Futura sucessora",
     text: "Filha dos fundadores, atua na continuidade do trabalho da família, dando sequência aos valores e à relação de longo prazo com os clientes.",
+    photo: nathaly.url,
   },
 ];
 
