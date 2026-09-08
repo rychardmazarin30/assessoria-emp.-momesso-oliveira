@@ -254,69 +254,56 @@ function Index() {
         </div>
       </section>
 
-      {/* Trust / Social Proof */}
+      {/* Diferenciais */}
       <section id="diferenciais" className="py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20">
             <div>
-              <div className="inline-flex items-center gap-4 p-4 bg-navy text-white mb-8">
+              <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+                02 — Por que nos escolher
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-8">
+                Três décadas cuidando da contabilidade de quem cresce
+              </h2>
+              <p className="text-navy/70 leading-relaxed mb-10 max-w-md">
+                Fundada em 1991 por Marly Momesso, a Momesso &amp; Oliveira
+                atende empresas de todas as naturezas — da abertura ao
+                planejamento tributário — com processos digitais e contato
+                direto com quem entende do seu negócio.
+              </p>
+              <div className="inline-flex items-center gap-4 p-4 bg-navy text-white">
                 <div className="text-4xl font-display font-bold">5.0</div>
                 <div className="h-10 w-px bg-white/20" />
                 <div className="text-[10px] font-mono leading-tight tracking-widest uppercase">
-                  Google Verified
+                  Avaliação
                   <br />
-                  Excellence
+                  Google
                 </div>
-              </div>
-              <h2 className="text-4xl font-display font-bold leading-tight mb-8">
-                O que dizem nossos clientes em São Bernardo do Campo
-              </h2>
-              <div className="flex gap-6">
-                <button
-                  onClick={() =>
-                    setActiveTestimonial((i) =>
-                      i === 0 ? testimonials.length - 1 : i - 1
-                    )
-                  }
-                  className="size-12 border border-navy/10 grid place-items-center hover:bg-navy hover:text-white transition-all"
-                  aria-label="Depoimento anterior"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={() =>
-                    setActiveTestimonial((i) =>
-                      i === testimonials.length - 1 ? 0 : i + 1
-                    )
-                  }
-                  className="size-12 border border-navy/10 grid place-items-center hover:bg-navy hover:text-white transition-all"
-                  aria-label="Próximo depoimento"
-                >
-                  →
-                </button>
               </div>
             </div>
 
-            <div className="space-y-12">
-              {testimonials.map((testimonial, index) => (
-                <blockquote
-                  key={index}
-                  className={`border-l-2 border-gold pl-8 transition-opacity duration-500 ${
-                    index === activeTestimonial ? "opacity-100" : "opacity-40"
-                  }`}
+            <div className="grid sm:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+              {differentials.map((item) => (
+                <div
+                  key={item.code}
+                  className="bg-paper p-8 hover:bg-navy hover:text-white transition-colors duration-500 group"
                 >
-                  <p className="text-xl italic font-display mb-6 leading-relaxed">
-                    "{testimonial.quote}"
+                  <span className="font-mono text-xs text-gold block mb-10">
+                    {item.code}
+                  </span>
+                  <h3 className="text-xl font-display font-bold mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-navy/60 group-hover:text-white/60">
+                    {item.description}
                   </p>
-                  <cite className="not-italic font-mono text-xs uppercase tracking-widest text-navy/50">
-                    — {testimonial.author}, {testimonial.company}
-                  </cite>
-                </blockquote>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Contact/Location Section */}
       <section id="contato" className="py-24 border-t border-navy/5">
