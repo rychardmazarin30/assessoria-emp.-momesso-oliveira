@@ -1,191 +1,169 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { Menu, X, Star, Phone, MapPin, ArrowRight, Plus } from "lucide-react";
+import { Star, Phone, MapPin, ArrowRight, Check } from "lucide-react";
 
-import officeViewAsset from "../assets/office-view.jpg.asset.json";
+import { site, whatsappLink, yearsInBusiness } from "@/data/site";
+import { services } from "@/data/services";
+import { posts } from "@/data/blog";
+import { ContactForm } from "@/components/ContactForm";
+import familia1 from "../assets/familia-1.jpg.asset.json";
+import familia2 from "../assets/familia-2.jpg.asset.json";
+import marly from "../assets/marly.jpg.asset.json";
 import mapLocationAsset from "../assets/map-location.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Momesso & Oliveira | Assessoria Empresarial em SBC" },
-      { name: "description", content: "Escritório de contabilidade e assessoria empresarial em São Bernardo do Campo. Avaliação 5.0 no Google. Gestão tributária, contábil, departamento pessoal e consultoria estratégica." },
-      { property: "og:title", content: "Momesso & Oliveira | Assessoria Empresarial em SBC" },
-      { property: "og:description", content: "Escritório de contabilidade e assessoria empresarial em São Bernardo do Campo. Avaliação 5.0 no Google." },
+      {
+        title:
+          "Contabilidade em São Bernardo do Campo | Momesso & Oliveira",
+      },
+      {
+        name: "description",
+        content:
+          "Escritório de contabilidade familiar em São Bernardo do Campo desde 1991. Contabilidade empresarial, assessoria fiscal, departamento pessoal e planejamento tributário. Avaliação 5.0 no Google.",
+      },
+      {
+        property: "og:title",
+        content: "Contabilidade em São Bernardo do Campo | Momesso & Oliveira",
+      },
+      {
+        property: "og:description",
+        content:
+          "Há mais de 30 anos ajudando empresas a crescer com segurança. Contabilidade estratégica, tradição familiar e atendimento próximo no ABC Paulista.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: site.url },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: site.url }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AccountingService",
+          name: site.legalName,
+          url: site.url,
+          telephone: site.phone,
+          foundingDate: String(site.founded),
+          areaServed: ["São Bernardo do Campo", "ABC Paulista", "Brasil"],
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: site.address.street,
+            addressLocality: site.address.city,
+            addressRegion: site.address.state,
+            postalCode: site.address.zip,
+            addressCountry: "BR",
+          },
+          openingHours: "Mo-Fr 08:00-18:00",
+          sameAs: [
+            site.social.linkedin,
+            site.social.instagram,
+          ],
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "5.0",
+            bestRating: "5",
+            ratingCount: "1",
+          },
+        }),
+      },
+    ],
   }),
 });
 
-const navLinks = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Contato", href: "#contato" },
-];
-
-const services = [
-  {
-    code: "01 / Fiscal",
-    title: "Gestão Tributária",
-    description:
-      "Planejamento estratégico para otimização de impostos e conformidade rigorosa com a legislação vigente.",
-  },
-  {
-    code: "02 / Societário",
-    title: "Abertura & Consultoria",
-    description:
-      "Estruturação societária, fusões, aquisições e assessoria completa para novos empreendimentos.",
-  },
-  {
-    code: "03 / DP",
-    title: "Folha de Pagamento",
-    description:
-      "Processamento preciso de encargos trabalhistas, eSocial e gestão de benefícios para sua equipe.",
-  },
+const stats = [
+  { value: `${yearsInBusiness}`, label: "Anos de mercado" },
+  { value: "1991", label: "Ano de fundação" },
+  { value: "2", label: "Gerações da família" },
+  { value: "5.0", label: "Avaliação no Google" },
 ];
 
 const differentials = [
   {
     code: "01",
-    title: "Desde 1991",
+    title: "Empresa familiar",
     description:
-      "Mais de três décadas de atuação contábil, acompanhando empresas de todos os portes em cada fase do crescimento.",
+      "Fundada por Marly Momesso e Natanael Oliveira, hoje com a nova geração da família à frente das áreas técnicas.",
   },
   {
     code: "02",
-    title: "Atendimento nacional",
+    title: "Mais de 30 anos de experiência",
     description:
-      "Sede em São Bernardo do Campo e atendimento a empresas em todo o território nacional, com rotinas 100% digitais.",
+      "Décadas acompanhando empresas de todos os portes, em ciclos bons e difíceis da economia.",
   },
   {
     code: "03",
-    title: "Parceira Conta Azul",
+    title: "Atendimento próximo",
     description:
-      "Escritório parceiro certificado Conta Azul, com processos integrados e informação contábil em tempo real.",
+      "Você fala com quem cuida da sua empresa. Sem robô, sem fila, sem trocar de responsável a cada mês.",
   },
   {
     code: "04",
-    title: "Da abertura ao planejamento",
+    title: "Equipe especializada",
     description:
-      "Abertura de empresas de todas as naturezas, planejamento tributário e consultoria empresarial contínua.",
+      "Times dedicados às áreas contábil, fiscal e de departamento pessoal, com responsabilidade técnica no CRC-SP.",
+  },
+  {
+    code: "05",
+    title: "Soluções personalizadas",
+    description:
+      "Nada de pacote pronto: o serviço é desenhado a partir do porte, do setor e do momento da sua empresa.",
+  },
+  {
+    code: "06",
+    title: "Tecnologia com relacionamento",
+    description:
+      "Rotinas digitais e parceria certificada Conta Azul, sem abrir mão da conversa olho no olho.",
   },
 ];
 
-
-function LogoMark({ className = "size-10" }: { className?: string }) {
-  return (
-    <div
-      className={`${className} bg-navy flex items-center justify-center`}
-      aria-hidden="true"
-    >
-      <div className="size-6 border-2 border-gold rotate-45" />
-    </div>
-  );
-}
+const timeline = [
+  { year: "1991", text: "Fundação do escritório em São Bernardo do Campo." },
+  { year: "Anos 2000", text: "Consolidação da carteira no ABC Paulista." },
+  { year: "Anos 2010", text: "Digitalização das rotinas e parceria Conta Azul." },
+  { year: "Hoje", text: "Nova geração da família à frente das áreas técnicas." },
+];
 
 function Index() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
-
   return (
-    <div className="min-h-screen bg-paper text-navy font-body selection:bg-gold/20">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-paper/95 backdrop-blur-md border-b border-navy/5">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4">
-            <LogoMark />
-            <div className="leading-none">
-              <span className="block font-mono text-[10px] tracking-tighter uppercase text-gold">
-                Assessoria Empresarial
-              </span>
-              <span className="block font-display text-lg font-bold tracking-tight">
-                Momesso & Oliveira
-              </span>
-            </div>
-          </Link>
-
-          <div className="hidden md:flex items-center gap-10 font-mono text-[11px] uppercase tracking-widest">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="hover:text-gold transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contato"
-              className="px-5 py-2.5 bg-navy text-white hover:bg-gold transition-all"
-            >
-              Falar Agora
-            </a>
-          </div>
-
-          <button
-            className="md:hidden p-2 text-navy"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-t border-navy/5 bg-paper px-6 py-6 space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block font-mono text-xs uppercase tracking-widest hover:text-gold"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contato"
-              className="block w-fit px-5 py-2.5 bg-navy text-white font-mono text-xs uppercase tracking-widest"
-            >
-              Falar Agora
-            </a>
-          </div>
-        )}
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+    <div>
+      {/* Hero */}
+      <section className="relative pt-16 pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-12 items-end">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block animate-reveal">
-                [ S. Bernardo do Campo ]
+                [ Escritório contábil em São Bernardo do Campo · desde 1991 ]
               </span>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] text-balance mb-8 animate-reveal-1">
-                A clareza que seu{" "}
-                <span className="italic text-gold">patrimônio</span> exige.
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] text-balance mb-8 animate-reveal-1">
+                Há mais de {yearsInBusiness} anos ajudando empresas a crescer com{" "}
+                <span className="italic text-gold">segurança</span>.
               </h1>
-              <p className="max-w-md text-lg text-navy/70 leading-relaxed mb-10 animate-reveal-2">
-                Transformamos a complexidade contábil em alavanca estratégica
-                para o seu negócio. Segurança jurídica e precisão fiscal de alto
-                padrão.
+              <p className="max-w-xl text-lg text-navy/70 leading-relaxed mb-10 animate-reveal-2">
+                Transformamos a complexidade contábil, fiscal e trabalhista em
+                decisões seguras para o crescimento da sua empresa.
               </p>
               <div className="flex flex-wrap gap-4 animate-reveal-3">
                 <a
-                  href="#contato"
-                  className="px-8 py-4 bg-navy text-white font-mono text-xs uppercase tracking-widest flex items-center gap-3 group hover:pr-10 transition-all"
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 bg-navy text-white font-mono text-xs uppercase tracking-widest flex items-center gap-3 group hover:bg-gold transition-all"
                 >
-                  Solicitar Proposta
+                  Falar com um Especialista
                   <ArrowRight
                     size={16}
                     className="group-hover:translate-x-2 transition-transform"
                   />
                 </a>
+                <Link
+                  to="/contato"
+                  className="px-8 py-4 border border-navy/15 font-mono text-xs uppercase tracking-widest hover:border-gold hover:text-gold transition-all"
+                >
+                  Solicitar Diagnóstico
+                </Link>
                 <div className="flex items-center gap-3 px-6 py-4 border border-navy/10">
                   <div className="flex text-gold">
                     {[...Array(5)].map((_, i) => (
@@ -193,7 +171,7 @@ function Index() {
                     ))}
                   </div>
                   <span className="font-mono text-xs tracking-tighter">
-                    5.0 GOOGLE RATING
+                    5.0 GOOGLE
                   </span>
                 </div>
               </div>
@@ -201,263 +179,367 @@ function Index() {
             <div className="lg:col-span-5 animate-reveal-4">
               <div className="w-full aspect-[4/5] bg-navy/5 overflow-hidden">
                 <img
-                  src={officeViewAsset.url}
-                  alt="Escritório executivo moderno da Momesso & Oliveira"
-                  width={1024}
-                  height={1280}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  src={familia1.url}
+                  alt="Sócios e equipe da Momesso & Oliveira Assessoria Empresarial em São Bernardo do Campo"
+                  className="w-full h-full object-cover"
                   loading="eager"
                 />
               </div>
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-widest text-navy/40">
+                A família Momesso &amp; Oliveira
+              </p>
             </div>
           </div>
         </div>
-        {/* Background Grid lines */}
         <div className="absolute top-0 left-1/2 w-px h-full bg-navy/5 -z-10 hidden lg:block" />
         <div className="absolute top-0 left-3/4 w-px h-full bg-navy/5 -z-10 hidden lg:block" />
       </section>
 
-      {/* Services Grid */}
-      <section id="servicos" className="py-24 bg-navy text-white">
+      {/* Autoridade */}
+      <section className="bg-navy text-white py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-10 block">
+            Confiança construída ao longo de décadas
+          </span>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-navy p-8">
+                <div className="font-display text-4xl md:text-5xl font-bold text-gold mb-3">
+                  {s.value}
+                </div>
+                <div className="font-mono text-[10px] uppercase tracking-widest text-white/50">
+                  {s.label}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-white/40 text-sm">
+            Responsabilidade técnica: Marly Momesso Oliveira — {site.crc}.
+            Escritório parceiro certificado Conta Azul, com atendimento a
+            empresas em todo o Brasil.
+          </p>
+        </div>
+      </section>
+
+      {/* Serviços */}
+      <section id="servicos" className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
             <div className="max-w-xl">
               <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-4 block">
-                01 — Especialidades
+                01 — Serviços
               </span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold">
-                Soluções modulares para cada estágio do seu negócio
+              <h2 className="text-3xl md:text-5xl font-display font-bold">
+                Contabilidade estratégica em todas as frentes
               </h2>
             </div>
-            <div className="h-px flex-1 bg-gold/20 mx-10 hidden md:block" />
+            <Link
+              to="/servicos"
+              className="font-mono text-[11px] uppercase tracking-widest text-gold hover:text-navy shrink-0"
+            >
+              Ver todos os serviços →
+            </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10 border border-navy/10">
             {services.map((service) => (
-              <div
-                key={service.code}
-                className="bg-navy p-10 group hover:bg-gold transition-colors duration-500"
+              <Link
+                key={service.slug}
+                to="/servicos/$slug"
+                params={{ slug: service.slug }}
+                className="bg-paper p-8 group hover:bg-navy hover:text-white transition-colors duration-500"
               >
-                <span className="font-mono text-xs text-gold group-hover:text-navy mb-12 block">
+                <span className="font-mono text-xs text-gold mb-10 block">
                   {service.code}
                 </span>
-                <h3 className="text-2xl font-display mb-4">{service.title}</h3>
-                <p className="text-white/60 group-hover:text-navy/80 text-sm leading-relaxed mb-8">
-                  {service.description}
+                <h3 className="text-xl font-display font-bold mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-navy/60 group-hover:text-white/60 mb-6">
+                  {service.short}
                 </p>
-                <div className="h-8 w-8 border border-gold group-hover:border-navy grid place-items-center text-gold group-hover:text-navy">
-                  <Plus size={16} />
-                </div>
+                <ArrowRight
+                  size={18}
+                  className="text-gold group-hover:translate-x-2 transition-transform"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* História */}
+      <section id="historia" className="py-24 bg-navy text-white">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-4 block">
+              02 — Nossa história
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
+              Uma história construída em família
+            </h2>
+            <p className="text-white/60 leading-relaxed mb-10 max-w-lg">
+              Marly Momesso e Natanael Oliveira abriram o escritório em 1991
+              atendendo pequenas empresas de São Bernardo do Campo. Hoje, a nova
+              geração da família conduz as áreas técnicas ao lado dos
+              fundadores, com a mesma proximidade de sempre e a tecnologia que o
+              negócio moderno exige.
+            </p>
+            <ol className="space-y-6 mb-10">
+              {timeline.map((t) => (
+                <li key={t.year} className="flex gap-6 items-start">
+                  <span className="font-mono text-xs text-gold w-24 shrink-0 pt-1">
+                    {t.year}
+                  </span>
+                  <span className="text-white/70 border-l border-gold/30 pl-6">
+                    {t.text}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <Link
+              to="/sobre"
+              className="font-mono text-[11px] uppercase tracking-widest text-gold hover:text-white"
+            >
+              Conhecer a história completa →
+            </Link>
+          </div>
+          <img
+            src={familia2.url}
+            alt="Família fundadora da Momesso & Oliveira em frente ao escritório"
+            className="w-full aspect-[4/3] object-cover"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      {/* Sócios */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-4 block">
+            03 — Quem conduz
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-12">
+            Os sócios
+          </h2>
+          <div className="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+            <div className="bg-paper p-10 flex gap-8">
+              <img
+                src={marly.url}
+                alt="Marly Momesso Oliveira, contadora responsável"
+                className="size-24 object-cover shrink-0"
+                loading="lazy"
+              />
+              <div>
+                <h3 className="font-display text-2xl font-bold mb-1">
+                  Marly Momesso Oliveira
+                </h3>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-gold mb-4">
+                  Sócia-fundadora · Contadora responsável
+                </p>
+                <p className="text-sm text-navy/60 leading-relaxed mb-4">
+                  Fundou o escritório em 1991 e responde tecnicamente pelos
+                  trabalhos contábeis, com atuação em contabilidade empresarial,
+                  planejamento tributário e consultoria.
+                </p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-navy/40">
+                  {site.crc}
+                </p>
+              </div>
+            </div>
+            <div className="bg-paper p-10">
+              <h3 className="font-display text-2xl font-bold mb-1">
+                Natanael Oliveira
+              </h3>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-gold mb-4">
+                Sócio-fundador
+              </p>
+              <p className="text-sm text-navy/60 leading-relaxed">
+                Cofundador da Momesso &amp; Oliveira, atua na gestão do
+                escritório e no relacionamento com os clientes atendidos ao
+                longo de mais de três décadas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Diferenciais */}
+      <section id="diferenciais" className="py-24 border-t border-navy/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-4 block">
+            04 — Diferenciais
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-14 max-w-2xl">
+            Por que escolher a Momesso &amp; Oliveira?
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-navy/10 border border-navy/10">
+            {differentials.map((item) => (
+              <div
+                key={item.code}
+                className="bg-paper p-8 hover:bg-navy hover:text-white transition-colors duration-500 group"
+              >
+                <span className="font-mono text-xs text-gold block mb-10">
+                  {item.code}
+                </span>
+                <h3 className="text-xl font-display font-bold mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-navy/60 group-hover:text-white/60">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Diferenciais */}
-      <section id="diferenciais" className="py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20">
-            <div>
-              <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
-                02 — Por que nos escolher
-              </span>
-              <h2 className="text-4xl md:text-5xl font-display font-bold leading-tight mb-8">
-                Três décadas cuidando da contabilidade de quem cresce
-              </h2>
-              <p className="text-navy/70 leading-relaxed mb-10 max-w-md">
-                Fundada em 1991 por Marly Momesso, a Momesso &amp; Oliveira
-                atende empresas de todas as naturezas — da abertura ao
-                planejamento tributário — com processos digitais e contato
-                direto com quem entende do seu negócio.
-              </p>
-              <div className="inline-flex items-center gap-4 p-4 bg-navy text-white">
-                <div className="text-4xl font-display font-bold">5.0</div>
-                <div className="h-10 w-px bg-white/20" />
-                <div className="text-[10px] font-mono leading-tight tracking-widest uppercase">
-                  Avaliação
-                  <br />
-                  Google
-                </div>
-              </div>
-            </div>
+      {/* Prova social */}
+      <section className="py-20 bg-navy text-white">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-4 block">
+              05 — Reputação
+            </span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              Avaliação 5.0 no Google
+            </h2>
+            <p className="text-white/60 leading-relaxed max-w-lg mb-8">
+              Empresas que estão conosco há décadas e novos clientes que chegam
+              por indicação. A melhor prova do nosso trabalho é a permanência de
+              quem nos contrata.
+            </p>
+            <a
+              href={site.social.google}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-[11px] uppercase tracking-widest text-gold hover:text-white"
+            >
+              Ver avaliações no Google →
+            </a>
+          </div>
+          <ul className="space-y-5">
+            {[
+              "Clientes atendidos desde a fundação, em 1991",
+              "Atendimento a empresas em todo o território nacional",
+              "Escritório parceiro certificado Conta Azul",
+              "Responsabilidade técnica registrada no CRC-SP",
+            ].map((t) => (
+              <li key={t} className="flex gap-4">
+                <Check size={18} className="text-gold shrink-0 mt-1" />
+                <span className="text-white/80 leading-relaxed">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-            <div className="grid sm:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
-              {differentials.map((item) => (
-                <div
-                  key={item.code}
-                  className="bg-paper p-8 hover:bg-navy hover:text-white transition-colors duration-500 group"
-                >
-                  <span className="font-mono text-xs text-gold block mb-10">
-                    {item.code}
-                  </span>
-                  <h3 className="text-xl font-display font-bold mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-navy/60 group-hover:text-white/60">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
+      {/* Blog */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-4 block">
+                06 — Conteúdo
+              </span>
+              <h2 className="text-3xl md:text-5xl font-display font-bold">
+                Do nosso blog
+              </h2>
             </div>
+            <Link
+              to="/blog"
+              className="font-mono text-[11px] uppercase tracking-widest text-gold hover:text-navy shrink-0"
+            >
+              Ver todos os artigos →
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-navy/10 border border-navy/10">
+            {posts.map((p) => (
+              <Link
+                key={p.slug}
+                to="/blog/$slug"
+                params={{ slug: p.slug }}
+                className="bg-paper p-8 group hover:bg-navy hover:text-white transition-colors duration-500"
+              >
+                <span className="font-mono text-[10px] uppercase tracking-widest text-gold block mb-10">
+                  {p.category}
+                </span>
+                <h3 className="text-xl font-display font-bold mb-3 leading-snug">
+                  {p.title}
+                </h3>
+                <p className="text-sm text-navy/60 group-hover:text-white/60 leading-relaxed">
+                  {p.excerpt}
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-
-      {/* Contact/Location Section */}
+      {/* Contato */}
       <section id="contato" className="py-24 border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-px bg-navy/10">
-            <div className="bg-paper p-12 lg:pr-24">
-              <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-8 block">
-                03 — Localização
+          <div className="grid lg:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+            <div className="bg-paper p-10 lg:p-12">
+              <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+                07 — Contato
               </span>
+              <h2 className="text-3xl font-display font-bold mb-8">
+                Solicite seu diagnóstico
+              </h2>
+              <ContactForm />
+            </div>
+
+            <div className="bg-paper p-10 lg:p-12">
               <h2 className="text-3xl font-display font-bold mb-8">
                 Estamos no coração de SBC
               </h2>
-              <address className="not-italic space-y-4 mb-12">
-                <p className="text-lg font-medium">
-                  R. Olegário Herculano, 545
-                </p>
+              <address className="not-italic space-y-4 mb-8">
+                <p className="text-lg font-medium">{site.address.street}</p>
                 <p className="text-navy/60">
-                  Anchieta, São Bernardo do Campo - SP
+                  {site.address.district}, {site.address.city} -{" "}
+                  {site.address.state}
                   <br />
-                  09732-570
+                  {site.address.zip}
                 </p>
-                <p className="text-navy/60">
-                  Segunda a sexta, 08:00 – 18:00
-                </p>
+                <p className="text-navy/60">{site.hours}</p>
               </address>
-
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 <a
-                  href="tel:+551127584425"
+                  href={site.phoneHref}
                   className="flex items-center gap-4 text-navy hover:text-gold transition-colors"
                 >
                   <Phone size={16} className="text-gold" />
-                  (11) 2758-4425
+                  {site.phone}
                 </a>
                 <a
-                  href="https://wa.me/5511993266660"
+                  href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-navy hover:text-gold transition-colors"
                 >
                   <span className="font-mono text-xs text-gold">WAP</span>
-                  (11) 99326-6660
+                  {site.whatsapp}
                 </a>
               </div>
-            </div>
-
-            <div className="bg-navy/5 min-h-[400px] relative overflow-hidden group">
-              <img
-                src={mapLocationAsset.url}
-                alt="Mapa de São Bernardo do Campo com destaque no bairro Anchieta"
-                width={1024}
-                height={1024}
-                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000"
-                loading="lazy"
-              />
-              <div className="absolute bottom-6 left-6 bg-paper px-4 py-3 border border-navy/10 flex items-center gap-3">
-                <MapPin size={18} className="text-gold" />
-                <span className="font-mono text-xs uppercase tracking-widest">
-                  Anchieta, SBC
-                </span>
+              <div className="relative">
+                <img
+                  src={mapLocationAsset.url}
+                  alt="Mapa de São Bernardo do Campo com destaque no bairro Anchieta"
+                  className="w-full aspect-[16/10] object-cover grayscale"
+                  loading="lazy"
+                />
+                <div className="absolute bottom-4 left-4 bg-paper px-4 py-3 border border-navy/10 flex items-center gap-3">
+                  <MapPin size={18} className="text-gold" />
+                  <span className="font-mono text-xs uppercase tracking-widest">
+                    Anchieta, SBC
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-navy text-white pt-20 pb-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-20">
-            <div className="col-span-2">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="size-8 bg-gold flex items-center justify-center">
-                  <div className="size-4 border-2 border-navy rotate-45" />
-                </div>
-                <span className="font-display text-xl font-bold tracking-tight">
-                  Momesso & Oliveira
-                </span>
-              </div>
-              <p className="max-w-xs text-white/40 text-sm leading-relaxed">
-                Excelência contábil e consultoria empresarial estratégica.
-              </p>
-              <div className="mt-6 space-y-1 text-white/40 text-xs">
-                <p className="font-medium text-white/60">Responsabilidade técnica</p>
-                <p>Marly Momesso Oliveira</p>
-                <p>CRC-SP 1SP 163438/O-1</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-gold mb-6">
-                Navegação
-              </h4>
-              <ul className="space-y-3 text-sm text-white/60">
-                <li>
-                  <a href="#servicos" className="hover:text-white transition-colors">
-                    Serviços
-                  </a>
-                </li>
-                <li>
-                  <a href="#diferenciais" className="hover:text-white transition-colors">
-                    Diferenciais
-                  </a>
-                </li>
-                <li>
-                  <a href="#contato" className="hover:text-white transition-colors">
-                    Contato
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-mono text-[10px] uppercase tracking-widest text-gold mb-6">
-                Social
-              </h4>
-              <ul className="space-y-3 text-sm text-white/60">
-                <li>
-                  <a
-                    href="https://br.linkedin.com/company/momesso-oliveira"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/momessoeoliveira.contabilidade/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.google.com/search?q=Momesso+%26+Oliveira+Assessoria+Empresarial"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
-                  >
-                    Google Business
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-white/30 uppercase tracking-widest">
-            <p>© {new Date().getFullYear()} Momesso & Oliveira. Todos os direitos reservados.</p>
-            <p>Assessoria Empresarial em SBC</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

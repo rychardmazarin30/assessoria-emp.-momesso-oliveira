@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AbrirEmpresaEmSaoBernardoDoCampoRouteImport } from './routes/abrir-empresa-em-sao-bernardo-do-campo'
+import { Route as ContabilidadeEmSaoBernardoDoCampoRouteImport } from './routes/contabilidade-em-sao-bernardo-do-campo'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -22,6 +24,18 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AbrirEmpresaEmSaoBernardoDoCampoRoute =
+  AbrirEmpresaEmSaoBernardoDoCampoRouteImport.update({
+    id: '/abrir-empresa-em-sao-bernardo-do-campo',
+    path: '/abrir-empresa-em-sao-bernardo-do-campo',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ContabilidadeEmSaoBernardoDoCampoRoute =
+  ContabilidadeEmSaoBernardoDoCampoRouteImport.update({
+    id: '/contabilidade-em-sao-bernardo-do-campo',
+    path: '/contabilidade-em-sao-bernardo-do-campo',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
@@ -55,6 +69,8 @@ const ServicosSlugRoute = ServicosSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/abrir-empresa-em-sao-bernardo-do-campo': typeof AbrirEmpresaEmSaoBernardoDoCampoRoute
+  '/contabilidade-em-sao-bernardo-do-campo': typeof ContabilidadeEmSaoBernardoDoCampoRoute
   '/contato': typeof ContatoRoute
   '/sobre': typeof SobreRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -64,6 +80,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/abrir-empresa-em-sao-bernardo-do-campo': typeof AbrirEmpresaEmSaoBernardoDoCampoRoute
+  '/contabilidade-em-sao-bernardo-do-campo': typeof ContabilidadeEmSaoBernardoDoCampoRoute
   '/contato': typeof ContatoRoute
   '/sobre': typeof SobreRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -74,6 +92,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/abrir-empresa-em-sao-bernardo-do-campo': typeof AbrirEmpresaEmSaoBernardoDoCampoRoute
+  '/contabilidade-em-sao-bernardo-do-campo': typeof ContabilidadeEmSaoBernardoDoCampoRoute
   '/contato': typeof ContatoRoute
   '/sobre': typeof SobreRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -85,6 +105,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/abrir-empresa-em-sao-bernardo-do-campo'
+    | '/contabilidade-em-sao-bernardo-do-campo'
     | '/contato'
     | '/sobre'
     | '/blog/$slug'
@@ -94,6 +116,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/abrir-empresa-em-sao-bernardo-do-campo'
+    | '/contabilidade-em-sao-bernardo-do-campo'
     | '/contato'
     | '/sobre'
     | '/blog/$slug'
@@ -103,6 +127,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/abrir-empresa-em-sao-bernardo-do-campo'
+    | '/contabilidade-em-sao-bernardo-do-campo'
     | '/contato'
     | '/sobre'
     | '/blog/$slug'
@@ -113,6 +139,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AbrirEmpresaEmSaoBernardoDoCampoRoute: typeof AbrirEmpresaEmSaoBernardoDoCampoRoute
+  ContabilidadeEmSaoBernardoDoCampoRoute: typeof ContabilidadeEmSaoBernardoDoCampoRoute
   ContatoRoute: typeof ContatoRoute
   SobreRoute: typeof SobreRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -128,6 +156,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/abrir-empresa-em-sao-bernardo-do-campo': {
+      id: '/abrir-empresa-em-sao-bernardo-do-campo'
+      path: '/abrir-empresa-em-sao-bernardo-do-campo'
+      fullPath: '/abrir-empresa-em-sao-bernardo-do-campo'
+      preLoaderRoute: typeof AbrirEmpresaEmSaoBernardoDoCampoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contabilidade-em-sao-bernardo-do-campo': {
+      id: '/contabilidade-em-sao-bernardo-do-campo'
+      path: '/contabilidade-em-sao-bernardo-do-campo'
+      fullPath: '/contabilidade-em-sao-bernardo-do-campo'
+      preLoaderRoute: typeof ContabilidadeEmSaoBernardoDoCampoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -177,6 +219,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AbrirEmpresaEmSaoBernardoDoCampoRoute: AbrirEmpresaEmSaoBernardoDoCampoRoute,
+  ContabilidadeEmSaoBernardoDoCampoRoute:
+    ContabilidadeEmSaoBernardoDoCampoRoute,
   ContatoRoute: ContatoRoute,
   SobreRoute: SobreRoute,
   BlogSlugRoute: BlogSlugRoute,
