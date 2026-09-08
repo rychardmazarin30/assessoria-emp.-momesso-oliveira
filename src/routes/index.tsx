@@ -325,6 +325,9 @@ function Index() {
                   <br />
                   09732-570
                 </p>
+                <p className="text-navy/60">
+                  Segunda a sexta, 08:00 – 18:00
+                </p>
               </address>
 
               <div className="space-y-4">
@@ -336,13 +339,13 @@ function Index() {
                   (11) 2758-4425
                 </a>
                 <a
-                  href="https://wa.me/551127584425"
+                  href="https://wa.me/5511993266660"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 text-navy hover:text-gold transition-colors"
                 >
                   <span className="font-mono text-xs text-gold">WAP</span>
-                  Iniciar conversa no WhatsApp
+                  (11) 99326-6660
                 </a>
               </div>
             </div>
