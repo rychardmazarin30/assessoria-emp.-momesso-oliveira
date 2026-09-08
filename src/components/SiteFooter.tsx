@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 import { site } from "@/data/site";
 import { services } from "@/data/services";
+import { LogoMark } from "@/components/SiteHeader";
 
 export function SiteFooter() {
   return (
@@ -10,9 +11,7 @@ export function SiteFooter() {
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-2">
             <div className="flex items-center gap-4 mb-8">
-              <div className="size-8 bg-gold flex items-center justify-center">
-                <div className="size-4 border-2 border-navy rotate-45" />
-              </div>
+              <LogoMark className="size-9" />
               <span className="font-display text-xl font-bold tracking-tight">
                 Momesso &amp; Oliveira
               </span>
