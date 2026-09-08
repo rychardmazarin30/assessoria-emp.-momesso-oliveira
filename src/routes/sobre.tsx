@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { site, yearsInBusiness } from "@/data/site";
 import { CtaBand } from "@/components/CtaBand";
+import { Partners } from "@/components/Partners";
 import familia1 from "../assets/familia-1.jpg.asset.json";
 import familia2 from "../assets/familia-2.jpg.asset.json";
-import marly from "../assets/marly.jpg.asset.json";
 
 export const Route = createFileRoute("/sobre")({
   component: SobrePage,
@@ -171,46 +171,7 @@ function SobrePage() {
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-12">
             Os sócios
           </h2>
-          <div className="grid md:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
-            <div className="bg-paper p-10 flex gap-8">
-              <img
-                src={marly.url}
-                alt="Marly Momesso Oliveira, contadora responsável"
-                className="size-24 object-cover shrink-0"
-                loading="lazy"
-              />
-              <div>
-                <h3 className="font-display text-2xl font-bold mb-1">
-                  Marly Momesso Oliveira
-                </h3>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-gold mb-4">
-                  Sócia-fundadora · Contadora responsável
-                </p>
-                <p className="text-sm text-navy/60 leading-relaxed mb-4">
-                  Fundou o escritório em {site.founded} e responde tecnicamente
-                  pelos trabalhos contábeis. Atua com contabilidade empresarial,
-                  planejamento tributário e consultoria a empresas de todos os
-                  portes.
-                </p>
-                <p className="font-mono text-[10px] uppercase tracking-widest text-navy/40">
-                  {site.crc}
-                </p>
-              </div>
-            </div>
-            <div className="bg-paper p-10">
-              <h3 className="font-display text-2xl font-bold mb-1">
-                Natanael Oliveira
-              </h3>
-              <p className="font-mono text-[10px] uppercase tracking-widest text-gold mb-4">
-                Sócio-fundador
-              </p>
-              <p className="text-sm text-navy/60 leading-relaxed">
-                Cofundador da Momesso &amp; Oliveira, atua na gestão do
-                escritório e no relacionamento com os clientes, acompanhando de
-                perto as empresas atendidas ao longo de mais de três décadas.
-              </p>
-            </div>
-          </div>
+          <Partners />
           <p className="mt-6 text-xs text-navy/40 font-mono uppercase tracking-widest">
             Nova geração da família integrada às áreas contábil, fiscal e de
             departamento pessoal.
