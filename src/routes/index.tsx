@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Contabilidade em São Bernardo do Campo | Momesso & Oliveira",
+          "Momesso & Oliveira | Contabilidade em São Bernardo do Campo",
       },
       {
         name: "description",
