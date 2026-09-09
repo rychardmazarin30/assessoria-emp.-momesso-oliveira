@@ -3,6 +3,7 @@ import {
   Outlet,
   Link,
   createRootRouteWithContext,
+  useRouterState,
   useRouter,
   HeadContent,
   Scripts,
@@ -133,6 +134,9 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const routeKey = useRouterState({
+    select: (state) => state.location.pathname,
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -140,7 +144,9 @@ function RootComponent() {
         <SiteHeader />
         <main>
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-          <Outlet />
+          <div key={routeKey} className="animate-page-enter">
+            <Outlet />
+          </div>
         </main>
         <SiteFooter />
         <WhatsAppFab />

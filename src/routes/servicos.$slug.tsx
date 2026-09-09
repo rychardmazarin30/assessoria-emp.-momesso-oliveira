@@ -72,17 +72,17 @@ function ServicoPage() {
         <div className="max-w-7xl mx-auto px-6">
           <Link
             to="/servicos"
-            className="font-mono text-[10px] uppercase tracking-widest text-navy/40 hover:text-gold"
+            className="font-mono text-[10px] uppercase tracking-widest text-navy/40 hover:text-gold animate-reveal"
           >
             Serviços
           </Link>
-          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl">
+          <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl animate-reveal-1">
             {service.title}
           </h1>
-          <p className="mt-8 text-lg text-navy/70 max-w-2xl leading-relaxed">
+          <p className="mt-8 text-lg text-navy/70 max-w-2xl leading-relaxed animate-reveal-2">
             {service.intro}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-wrap gap-4 animate-reveal-3">
             <a
               href={whatsappLink(
                 `Olá! Gostaria de falar sobre ${service.title}.`,
