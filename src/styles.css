@@ -194,6 +194,21 @@
   }
 }
 
+@keyframes page-enter {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@utility animate-page-enter {
+  animation: page-enter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @utility animate-line {
   animation: line-draw 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -220,4 +235,15 @@
 @utility animate-reveal-4 {
   animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 400ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-enter,
+  .animate-reveal,
+  .animate-reveal-1,
+  .animate-reveal-2,
+  .animate-reveal-3,
+  .animate-reveal-4 {
+    animation: none;
+  }
 }

@@ -78,14 +78,14 @@ function AbrirEmpresaPage() {
     <div>
       <section className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block animate-reveal">
             [ Abertura de empresas · SBC ]
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-4xl mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-4xl mb-8 animate-reveal-1">
             Abrir empresa em São Bernardo do Campo, do{" "}
             <span className="italic text-gold">CNAE ao alvará</span>.
           </h1>
-          <p className="text-lg text-navy/70 max-w-2xl leading-relaxed">
+          <p className="text-lg text-navy/70 max-w-2xl leading-relaxed animate-reveal-2">
             Conduzimos todo o processo de abertura para empresários de São
             Bernardo do Campo e região, com as decisões tributárias definidas
             desde o primeiro dia — para que sua empresa não comece pagando

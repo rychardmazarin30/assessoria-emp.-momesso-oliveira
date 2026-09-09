@@ -33,10 +33,10 @@ function ContatoPage() {
     <div>
       <section className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block animate-reveal">
             [ Contato ]
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl animate-reveal-1">
             Vamos conversar sobre a sua{" "}
             <span className="italic text-gold">empresa</span>.
           </h1>
@@ -44,7 +44,7 @@ function ContatoPage() {
       </section>
 
       <section className="pb-24">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-px bg-navy/10 border border-navy/10">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-px bg-navy/10 border border-navy/10 animate-reveal-2">
           <div className="bg-paper p-10 lg:p-12">
             <h2 className="font-display text-2xl font-bold mb-8">
               Solicitar diagnóstico

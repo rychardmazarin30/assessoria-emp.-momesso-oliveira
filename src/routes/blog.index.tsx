@@ -32,14 +32,14 @@ function BlogPage() {
     <div>
       <section className="pt-20 pb-12">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block animate-reveal">
             [ Blog ]
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl mb-8 animate-reveal-1">
             Conteúdo contábil para quem{" "}
             <span className="italic text-gold">decide</span>.
           </h1>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 animate-reveal-2">
             {categories.map((c) => (
               <span
                 key={c}
@@ -54,7 +54,7 @@ function BlogPage() {
 
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-px bg-navy/10 border border-navy/10">
+          <div className="grid md:grid-cols-3 gap-px bg-navy/10 border border-navy/10 animate-reveal-3">
             {posts.map((p) => (
               <Link
                 key={p.slug}

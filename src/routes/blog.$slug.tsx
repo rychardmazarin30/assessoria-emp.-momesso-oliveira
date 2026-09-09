@@ -59,21 +59,21 @@ function PostPage() {
         <div className="max-w-3xl mx-auto px-6">
           <Link
             to="/blog"
-            className="font-mono text-[10px] uppercase tracking-widest text-navy/40 hover:text-gold"
+            className="font-mono text-[10px] uppercase tracking-widest text-navy/40 hover:text-gold animate-reveal"
           >
             Blog
           </Link>
-          <span className="mt-6 font-mono text-[10px] uppercase tracking-widest text-gold block">
+          <span className="mt-6 font-mono text-[10px] uppercase tracking-widest text-gold block animate-reveal-1">
             {post.category} · {post.readingTime}
           </span>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05]">
+          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-[1.05] animate-reveal-2">
             {post.title}
           </h1>
-          <p className="mt-6 text-lg text-navy/70 leading-relaxed">
+          <p className="mt-6 text-lg text-navy/70 leading-relaxed animate-reveal-3">
             {post.excerpt}
           </p>
 
-          <div className="mt-12 space-y-10">
+          <div className="mt-12 space-y-10 animate-reveal-4">
             {post.body.map((block, i) => (
               <section key={i}>
                 {block.heading && (

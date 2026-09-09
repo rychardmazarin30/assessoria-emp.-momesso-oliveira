@@ -33,14 +33,14 @@ function ServicosPage() {
     <div>
       <section className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-6">
-          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+          <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block animate-reveal">
             [ Serviços ]
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] max-w-3xl mb-8 animate-reveal-1">
             Tudo o que sua empresa precisa em{" "}
             <span className="italic text-gold">contabilidade</span> e gestão.
           </h1>
-          <p className="text-lg text-navy/70 max-w-xl leading-relaxed">
+          <p className="text-lg text-navy/70 max-w-xl leading-relaxed animate-reveal-2">
             Da abertura da empresa ao planejamento tributário, cuidamos das
             rotinas obrigatórias e apoiamos as decisões estratégicas do seu
             negócio.
@@ -50,7 +50,7 @@ function ServicosPage() {
 
       <section className="pb-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10 border border-navy/10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-navy/10 border border-navy/10 animate-reveal-3">
             {services.map((s) => (
               <Link
                 key={s.slug}

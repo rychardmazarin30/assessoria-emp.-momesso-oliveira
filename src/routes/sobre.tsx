@@ -80,14 +80,14 @@ function SobrePage() {
       <section className="pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-6">
-            <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block">
+            <span className="font-mono text-xs text-gold uppercase tracking-[0.2em] mb-6 block animate-reveal">
               [ Desde {site.founded} ]
             </span>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] text-balance mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold leading-[0.95] text-balance mb-8 animate-reveal-1">
               Uma história construída em{" "}
               <span className="italic text-gold">família</span>.
             </h1>
-            <p className="text-lg text-navy/70 leading-relaxed max-w-lg">
+            <p className="text-lg text-navy/70 leading-relaxed max-w-lg animate-reveal-2">
               A Momesso &amp; Oliveira nasceu em {site.founded}, em São Bernardo
               do Campo, do trabalho de Marly Momesso e Natanael Oliveira. Mais de{" "}
               {yearsInBusiness} anos depois, a nova geração da família segue à
@@ -95,7 +95,7 @@ function SobrePage() {
               outras que chegaram pelo caminho.
             </p>
           </div>
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-6 animate-reveal-3">
             <img
               src={familia2.url}
               alt="Família fundadora e equipe da Momesso & Oliveira em São Bernardo do Campo"
